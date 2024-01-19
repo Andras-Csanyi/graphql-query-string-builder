@@ -1,0 +1,13 @@
+"""
+Simple entity to demonstrate what si the result of the builder generation.
+"""
+type SimpleEntity {
+    """
+    Id value
+    """
+    id: Int!
+    """
+    Name value
+    """
+    name: String
+}

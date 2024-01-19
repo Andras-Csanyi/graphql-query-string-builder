@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.andrascsanyi.graphql-query-string-builder</groupId>
+    <artifactId>graphql-query-string-builder</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>graphql-query-string-builder</name>
+    <description>graphql-query-string-builder</description>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-graphql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.graphql</groupId>
+            <artifactId>spring-graphql-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.github.kobylynskyi</groupId>
+                <artifactId>graphql-codegen-maven-plugin</artifactId>
+                <version>5.9.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-schemas</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <graphqlSchemas>
+                                <rootDir>${project.basedir}/src/main/resources/graphql</rootDir>
+                                <includePattern>.*\.graphqls?</includePattern>
+                                <recursive>true</recursive>
+                            </graphqlSchemas>
+                            <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>
+                            <packageName>com.andrascsanyi.graphql-query-string-builder.example</packageName>
+                            <generatedAnnotation>jakarta.annotation.Generated</generatedAnnotation>
+                            <generateBuilder>true</generateBuilder>
+                            <generateParameterizedFieldsResolvers>false</generateParameterizedFieldsResolvers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

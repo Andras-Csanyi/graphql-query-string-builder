@@ -1,0 +1,20 @@
+"""
+Scalar types to demonstrate how the generated builder manages GraphQL scalar types.
+"""
+type ScalarTypes {
+
+    """
+    Integer type
+    """
+    intType: Int
+
+    """
+    Float type
+    """
+    floatType: Float
+
+    """
+    String type
+    """
+    stringType: String
+}
