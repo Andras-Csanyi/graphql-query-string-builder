@@ -1,0 +1,4 @@
+type AnotherType {
+    id: ID!
+    furtherString: String
+}

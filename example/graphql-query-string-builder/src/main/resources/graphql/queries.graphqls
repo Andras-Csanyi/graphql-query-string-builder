@@ -1,0 +1,18 @@
+type Query {
+
+    """
+    Returns a single entity where the fields are scalar types
+    """
+    getScalarType: ScalarType
+    
+    """
+    Returns a single entity where one of the fields is not scalar type
+    """
+    getCertainTypeWhereFieldIsAnotherType: CertainType
+    
+    """
+    The query requires input and
+    return a type where one of the fields is another type
+    """
+    getCertainTypeWithParameters(foo: CertainTypeInput!): CertainType
+}

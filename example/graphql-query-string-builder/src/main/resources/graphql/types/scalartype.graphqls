@@ -1,7 +1,7 @@
 """
 Scalar types to demonstrate how the generated builder manages GraphQL scalar types.
 """
-type ScalarTypes {
+type ScalarType {
 
     """
     Integer type

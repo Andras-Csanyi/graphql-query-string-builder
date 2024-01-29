@@ -1,0 +1,5 @@
+type CertainType {
+    id: ID!
+    name: String!
+    anotherType: AnotherType
+}

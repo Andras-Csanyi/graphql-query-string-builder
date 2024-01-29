@@ -1,0 +1,5 @@
+input CertainTypeInput {
+    intType: Int
+    floatType: Float
+    stringType: String
+}
