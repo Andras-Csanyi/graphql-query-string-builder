@@ -1,6 +1,5 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types;
 
-import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.CertainType;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CertainTypeBuilderTests {
+public class CertainTypeTests {
     
     public static Stream<Arguments> data() {
         return Stream.of(

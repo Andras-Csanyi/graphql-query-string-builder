@@ -15,4 +15,9 @@ type Query {
     return a type where one of the fields is another type
     """
     getCertainTypeWithParameters(foo: CertainTypeInput!): CertainType
+
+    """
+    The query returns FooType which has a union type field
+    """
+    getAUnionType: FooType!
 }

@@ -1,6 +1,6 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.queries;
 
-import com.andrascsanyi.graphql_query_string_builder_example.CertainType;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.CertainType;
 
 public class GetCertainTypeWhereFieldIsAnotherTypeQueryBuilder {
 

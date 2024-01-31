@@ -1,8 +1,6 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types;
 
-import com.andrascsanyi.graphql_query_string_builder_example.AnotherType;
-
-public class AnotherTypeBuilder {
+public class AnotherType {
     
     public static class Builder {
         
@@ -11,7 +9,7 @@ public class AnotherTypeBuilder {
         private Boolean isIdQueried;
 
         /**
-         * Adds <b>id</b> field to the list of queried fields of {@link AnotherType}.
+         * Adds <b>id</b> field to the list of queried fields of {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType}.
          * 
          * @return {@link Builder}
          */
@@ -21,7 +19,7 @@ public class AnotherTypeBuilder {
         }
 
         /**
-         * Adds <b>id</b> field to the list of queried fields of {@link AnotherType}.
+         * Adds <b>id</b> field to the list of queried fields of {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType}.
          * 
          * @param isIdQueried Switch
          * @return {@link Builder}
@@ -35,7 +33,7 @@ public class AnotherTypeBuilder {
         private Boolean isFurtherStringQueried;
 
         /**
-         * Adds <b>furtherString</b> field to the list of queried fields of {@link AnotherType}.
+         * Adds <b>furtherString</b> field to the list of queried fields of {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType}.
          * 
          * @return {@link Builder}
          */
@@ -45,7 +43,7 @@ public class AnotherTypeBuilder {
         }
 
         /**
-         * Adds <b>furtherString</b> field to the list of queried fields of {@link AnotherType}.
+         * Adds <b>furtherString</b> field to the list of queried fields of {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType}.
          * 
          * @param isFurtherStringQueried Switch
          * @return {@link Builder}
@@ -57,7 +55,7 @@ public class AnotherTypeBuilder {
         private final static String furtherStringQueryString = "furtherString";
 
         /**
-         * Builds the GraphQL query string for {@link AnotherType}.
+         * Builds the GraphQL query string for {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType}.
          * 
          * @return the GraphQL query string
          */
@@ -76,7 +74,7 @@ public class AnotherTypeBuilder {
                 builder.append(furtherStringQueryString).append(" ");
             }
             
-            builder.append("}");
+            builder.append("}").append(" ");
             
             return builder.toString();
         }

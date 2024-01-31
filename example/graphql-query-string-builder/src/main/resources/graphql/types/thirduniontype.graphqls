@@ -1,0 +1,4 @@
+type ThirdUnionType {
+    id: ID!
+    thirdStringValue: String
+}

@@ -1,6 +1,6 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.queries;
 
-import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.AnotherTypeBuilder;
+import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.AnotherType;
 import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.CertainType;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -28,72 +28,64 @@ public class GetCertainTypeWhereFieldIsAnotherTypeTests {
                         true,
                         true,
                         true,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { id furtherString }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { id furtherString } } }"
                 ),
                 Arguments.of(
                         false,
                         true,
                         true,
                         true,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { furtherString }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { furtherString } } }"
                 ),
                 Arguments.of(
                         true,
                         false,
                         true,
                         true,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { id }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { id } } }"
                 ),
                 Arguments.of(
                         true,
                         true,
                         true,
                         true,
-                        false,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name } }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id name anotherType { id furtherString } } }"
                 ),
                 Arguments.of(
                         true,
                         true,
                         false,
                         true,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { name anotherType { id furtherString }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { name anotherType { id furtherString } } }"
                 ),
                 Arguments.of(
                         true,
                         true,
                         true,
                         false,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { id furtherString }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { id furtherString } } }"
                 ),
                 Arguments.of(
                         false,
                         true,
                         true,
                         false,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { furtherString }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { furtherString } } }"
                 ),
                 Arguments.of(
                         true,
                         false,
                         true,
                         false,
-                        true,
                         "customName",
-                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { id }} }"
+                        "query customName { getCertainTypeWhereFieldIsAnotherType { id anotherType { id } } }"
                 )
         );
     }
@@ -105,7 +97,6 @@ public class GetCertainTypeWhereFieldIsAnotherTypeTests {
             Boolean isAnotherTypeFurtherStringFieldQueried,
             Boolean isCertainTypeIdFieldQueried,
             Boolean isCertainTypeNameFieldQueried,
-            Boolean isCertainTypeAnotherTypeFieldQueried,
             String customQueryName,
             String expected
     ) {
@@ -113,7 +104,7 @@ public class GetCertainTypeWhereFieldIsAnotherTypeTests {
         GetCertainTypeWhereFieldIsAnotherTypeQueryBuilder.Builder queryBuilder =
                 new GetCertainTypeWhereFieldIsAnotherTypeQueryBuilder.Builder();
         CertainType.Builder certainTypeBuilder = new CertainType.Builder();
-        AnotherTypeBuilder.Builder anotherTypeBuilder = new AnotherTypeBuilder.Builder();
+        AnotherType.Builder anotherTypeBuilder = new AnotherType.Builder();
 
         anotherTypeBuilder
                 .id(isAnotherTypeIdFieldQueried)
@@ -122,19 +113,18 @@ public class GetCertainTypeWhereFieldIsAnotherTypeTests {
         certainTypeBuilder
                 .id(isCertainTypeIdFieldQueried)
                 .name(isCertainTypeNameFieldQueried)
-                .anotherType(isCertainTypeAnotherTypeFieldQueried)
-                .anotherTypeFields(anotherTypeBuilder.build());
+                .queriedAnotherTypeFields(anotherTypeBuilder.build());
 
         queryBuilder
                 .customQueryName(customQueryName)
                 .fields(certainTypeBuilder.build());
         
         // When
-        com.andrascsanyi.graphql_query_string_builder_example.CertainType result = httpGraphQlTester
+        com.andrascsanyi.graphqlquerystringbuilder.example.graphql.CertainType result = httpGraphQlTester
                 .document(queryBuilder.build())
                 .execute()
                 .path(queryBuilder.queryName())
-                .entity(com.andrascsanyi.graphql_query_string_builder_example.CertainType.class)
+                .entity(com.andrascsanyi.graphqlquerystringbuilder.example.graphql.CertainType.class)
                 .get();
         
         // Then

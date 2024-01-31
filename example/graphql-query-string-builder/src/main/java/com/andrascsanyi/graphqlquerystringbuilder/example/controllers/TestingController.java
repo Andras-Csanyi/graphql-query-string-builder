@@ -1,12 +1,12 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.controllers;
 
-import com.andrascsanyi.graphql_query_string_builder_example.AnotherType;
-import com.andrascsanyi.graphql_query_string_builder_example.CertainType;
-import com.andrascsanyi.graphql_query_string_builder_example.CertainTypeInput;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.CertainType;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.CertainTypeInput;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.ScalarType;
 import graphql.schema.DataFetchingEnvironment;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-import com.andrascsanyi.graphql_query_string_builder_example.ScalarType;
 import org.springframework.stereotype.Controller;
 
 import java.util.Collections;

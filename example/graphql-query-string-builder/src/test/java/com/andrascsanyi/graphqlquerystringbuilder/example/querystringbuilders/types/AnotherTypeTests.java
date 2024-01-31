@@ -1,6 +1,5 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types;
 
-import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.AnotherTypeBuilder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,24 +8,24 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AnotherTypeBuilderTests {
+public class AnotherTypeTests {
 
     public static Stream<Arguments> data() {
         return Stream.of(
                 Arguments.of(
                         true,
                         true,
-                        "{ id furtherString }"
+                        "{ id furtherString } "
                 ),
                 Arguments.of(
                         false,
                         true,
-                        "{ furtherString }"
+                        "{ furtherString } "
                 ),
                 Arguments.of(
                         true,
                         false,
-                        "{ id }"
+                        "{ id } "
                 )
         );
     }
@@ -40,7 +39,7 @@ public class AnotherTypeBuilderTests {
     ) {
 
         // Given
-        AnotherTypeBuilder.Builder builder = new AnotherTypeBuilder.Builder()
+        AnotherType.Builder builder = new AnotherType.Builder()
                 .id(isIdQueried)
                 .furtherString(isFurtherStringQueried);
 

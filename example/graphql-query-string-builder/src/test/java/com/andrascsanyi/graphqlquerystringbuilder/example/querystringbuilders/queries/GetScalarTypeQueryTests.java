@@ -34,11 +34,11 @@ public class GetScalarTypeQueryTests {
                 .fields(scalarTypeFields.build());
 
         // Act
-        com.andrascsanyi.graphql_query_string_builder_example.ScalarType result = httpGraphQlTester
+        com.andrascsanyi.graphqlquerystringbuilder.example.graphql.ScalarType result = httpGraphQlTester
                 .document(getScalarTypeQuery.build())
                 .execute()
                 .path(getScalarTypeQuery.queryName())
-                .entity(com.andrascsanyi.graphql_query_string_builder_example.ScalarType.class)
+                .entity(com.andrascsanyi.graphqlquerystringbuilder.example.graphql.ScalarType.class)
                 .get();
     }
 

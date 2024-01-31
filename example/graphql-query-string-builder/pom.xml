@@ -82,7 +82,7 @@
                                 <recursive>true</recursive>
                             </graphqlSchemas>
                             <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>
-                            <packageName>com.andrascsanyi.graphql_query_string_builder_example</packageName>
+                            <packageName>com.andrascsanyi.graphqlquerystringbuilder.example.graphql</packageName>
                             <generatedAnnotation>jakarta.annotation.Generated</generatedAnnotation>
                             <generateBuilder>true</generateBuilder>
                             <generateParameterizedFieldsResolvers>false</generateParameterizedFieldsResolvers>

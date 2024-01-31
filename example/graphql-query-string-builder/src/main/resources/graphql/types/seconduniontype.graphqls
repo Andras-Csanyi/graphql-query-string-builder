@@ -1,0 +1,4 @@
+type SecondUnionType {
+    id: ID!
+    secondStringValue: String
+}

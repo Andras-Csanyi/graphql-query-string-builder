@@ -1,6 +1,6 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types;
 
-import com.andrascsanyi.graphql_query_string_builder_example.AnotherType;
+import com.andrascsanyi.graphqlquerystringbuilder.example.graphql.AnotherType;
 import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.GraphQLQueryStringGeneratingException;
 
 public class CertainType {
@@ -65,14 +65,14 @@ public class CertainType {
 
         // anotherType field
         private String anotherType;
-        private String anotherTypeFields;
+        private String anotherTypeQueriedFields;
 
         /**
          * Adds <b>anotherType</b> field to the list of queried fields.
          *
          * @return {@link Builder}
          */
-        public Builder anotherType() {
+        public Builder queriedAnotherTypeFields() {
             this.isAnotherTypeQueried = true;
             return this;
         }
@@ -83,20 +83,8 @@ public class CertainType {
          * @param isAnotherTypeQueried switch
          * @return {@link Builder}
          */
-        public Builder anotherType(Boolean isAnotherTypeQueried) {
-            this.isAnotherTypeQueried = isAnotherTypeQueried;
-            return this;
-        }
-
-        /**
-         * Fields of {@link AnotherType} type going to be queried in GQL string format.
-         * This string is built by {@link AnotherType.Builder}.
-         *
-         * @param fields the list of fields in GQL text format
-         * @return {@link Builder}
-         */
-        public Builder anotherTypeFields(String fields) {
-            this.anotherTypeFields = fields;
+        public Builder queriedAnotherTypeFields(String anotherTypeQueriedFields) {
+            this.anotherTypeQueriedFields = anotherTypeQueriedFields;
             return this;
         }
 
@@ -107,7 +95,7 @@ public class CertainType {
          * Builds the Graphql query string for {@link CertainType}.
          *
          * <p>
-         * Since {@link com.andrascsanyi.graphql_query_string_builder_example.CertainType#getAnotherType()} 
+         * Since {@link CertainType#getAnotherType()}
          * is not scalar type building includes validation.
          * Invalid configuration will throw {@link GraphQLQueryStringGeneratingException}.
          * </p>
@@ -115,18 +103,6 @@ public class CertainType {
          * @return the GraphQL string
          */
         public String build() {
-
-            // validation
-            if (isAnotherTypeQueried
-                    && (anotherTypeFields.isEmpty() || anotherTypeFields.isBlank())) {
-                String msg = """
-                        CertainType#anotherType is type of AnotherType.
-                        The settings says that it is queried but no list of fields provided.
-                        please use the CertainType.Builder.anotherTypeFields() method to provide list of fields
-                        to be queried, or disable querying this field.
-                        """;
-                throw new GraphQLQueryStringGeneratingException(msg);
-            }
 
             StringBuilder builder = new StringBuilder();
             
@@ -140,10 +116,10 @@ public class CertainType {
                 builder.append(nameFieldString).append(" ");
             }
 
-            if (isAnotherTypeQueried) {
+            if (anotherTypeQueriedFields != null && !anotherTypeQueriedFields.isEmpty()) {
                 builder.append(anotherTypeFieldString).append(" ");
 
-                builder.append(anotherTypeFields);
+                builder.append(anotherTypeQueriedFields);
             }
             
             builder.append("}");

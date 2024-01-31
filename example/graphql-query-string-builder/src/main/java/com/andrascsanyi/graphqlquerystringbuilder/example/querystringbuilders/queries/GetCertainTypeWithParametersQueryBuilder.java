@@ -1,7 +1,5 @@
 package com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.queries;
 
-import com.andrascsanyi.graphqlquerystringbuilder.example.querystringbuilders.types.FooInputTypeBuilder;
-
 import java.util.Map;
 
 public class GetCertainTypeWithParametersQueryBuilder {
@@ -15,7 +13,7 @@ public class GetCertainTypeWithParametersQueryBuilder {
 
         private String fields;
 
-        public Builder fields(String fields) {
+        public Builder queriedCertainTypeFields(String fields) {
             this.fields = fields;
             return this;
         }
@@ -24,13 +22,6 @@ public class GetCertainTypeWithParametersQueryBuilder {
 
         public Builder customQueryName(String customQueryName) {
             this.customQueryName = customQueryName;
-            return this;
-        }
-
-        private FooInputTypeBuilder.Builder fooInputTypeBuilder;
-
-        private Builder fooInput(FooInputTypeBuilder.Builder fooInputTypeBuilder) {
-            this.fooInputTypeBuilder = fooInputTypeBuilder;
             return this;
         }
 
