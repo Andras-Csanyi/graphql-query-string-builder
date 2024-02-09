@@ -45,6 +45,8 @@ public class FooType {
             return this;
         }
 
+        private final static String somethingFieldString = "something";
+
         private List<String> somethingTypeQueriedFields = new ArrayList<>();
 
         /**
@@ -94,7 +96,7 @@ public class FooType {
          *
          * <p>This method makes possible to pass raw string which will be injected directly.</p>
          * <p>
-         *     <pre>
+         * <pre>
          *         query {customQueryName} {
          *             queryName {
          *                 id
@@ -106,6 +108,7 @@ public class FooType {
          *         }
          *     </pre>
          * </p>
+         *
          * @param unionTypesQueryString the raw query string
          * @return
          */
@@ -118,8 +121,9 @@ public class FooType {
          * Adds the provided list of query strings to the {@link com.andrascsanyi.graphqlquerystringbuilder.example.graphql.FooType#something}.
          *
          * <p>
-         *     An item in the list should contain only query string for one union type.
+         * An item in the list should contain only query string for one union type.
          * </p>
+         *
          * @param unionTypesQueryString {@link List} of query strings
          * @return {@link Builder}
          */
@@ -147,12 +151,20 @@ public class FooType {
             }
 
             if (!somethingTypeQueriedFields.isEmpty()) {
+                builder.append(somethingFieldString)
+                        .append(" ")
+                        .append("{");
+
                 for (String q : somethingTypeQueriedFields) {
-                    builder.append(q).append(" ");
+                    builder.append(q);
                 }
+
+                builder.append(" ")
+                        .append("}");
             }
 
-            builder.append("}");
+            builder.append(" ")
+                    .append("}");
 
             return builder.toString();
         }

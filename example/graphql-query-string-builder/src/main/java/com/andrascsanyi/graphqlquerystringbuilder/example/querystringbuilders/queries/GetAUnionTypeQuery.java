@@ -7,14 +7,14 @@ public class GetAUnionTypeQuery {
 
         private String fooTypeQueriedFields;
 
-        private Builder fooTypeQueriedFields(String fooTypeQueriedFields) {
+        public Builder fooTypeQueriedFields(String fooTypeQueriedFields) {
             this.fooTypeQueriedFields = fooTypeQueriedFields;
             return this;
         }
 
         private String customQueryName;
 
-        private Builder customQueryName(String customQueryName) {
+        public Builder customQueryName(String customQueryName) {
             this.customQueryName = customQueryName;
             return this;
         }

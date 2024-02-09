@@ -53,7 +53,7 @@ public class ThirdUnionType {
         public String buildAsUnionType() {
             StringBuilder builder = new StringBuilder();
 
-            builder.append("...").append(" ");
+            builder.append(" ").append("...").append(" ");
             builder.append("on").append(" ");
             builder.append(typeName).append(" ");
             builder.append("{").append(" ");
